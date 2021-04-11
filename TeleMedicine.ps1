@@ -26,9 +26,9 @@ dotnet tool install --global dotnet-ef
 Write-Output "Step  Install dotnet tool finished..."
 
 Write-Output "Step 8 Creating DB..."
-& "D:\postgreinstallation\bin\psql.exe" -U postgres -w -d postgres -c " SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'fewatelemedicine'; " | Out-Null
-& "D:\postgreinstallation\bin\psql.exe" -U postgres -w -d postgres -c "drop database IF EXISTS  fewatelemedicine;" | Out-Null
-& "D:\postgreinstallation\bin\psql.exe" -U postgres -w -d postgres -c "create database fewatelemedicine;" | Out-Null
+& "C:\Program Files\PostgreSQL\12\bin\psql.exe" -U postgres -w -d postgres -c " SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = 'fewatelemedicine'; " | Out-Null
+& "C:\Program Files\PostgreSQL\12\bin\psql.exe" -U postgres -w -d postgres -c "drop database IF EXISTS  fewatelemedicine;" | Out-Null
+& "C:\Program Files\PostgreSQL\12\bin\psql.exe" -U postgres -w -d postgres -c "create database fewatelemedicine;" | Out-Null
 dotnet ef migrations remove 
 dotnet ef migrations add v1 
 dotnet ef database update
